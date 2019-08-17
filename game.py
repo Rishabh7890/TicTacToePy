@@ -21,19 +21,17 @@ def assign_marker():
 
   # create empty variable for player 1's marker
   marker = ''
-  # Keep asking player to choose X or O until correct answer
+  # Keep asking player 1 to choose X or O until correct answer
   while marker != 'X' and marker != 'O':
     marker = input('Player 1 please choose X or O: ')
-  # Assign player 2 the opposite marker
-  player1 = marker
   # if statement for player 2's marker
+  # return markers as tuple so we can later unpack
   if marker == 'X':
-    player2 = 'O'
+    print(('X', 'O'))
+    return ('X', 'O')
   else:
-    player2 = 'X'
-  # return player 1 and player 2 as tuple so we can unpack later
-  print(f'Player 1: {player1} Player 2: {player2}')
-  return (player1, player2)
+    print(('O', 'X'))
+    return ('O', 'X')
 
 # test assign_marker function
 # use tuple unpacking so we can print each choice indv later on if we need to
