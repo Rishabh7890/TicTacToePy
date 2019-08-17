@@ -1,6 +1,6 @@
 # function to display the board
 def display_board(board):
-  # statement to clear output everytime display_board is called
+  # statement to clear output everytime display_board is called so we dont see history of boards
   print('\n' * 100)
   #print statements to display each position on board
   print(board[7] + '|' + board[8] + '|' + board[9])
@@ -13,6 +13,12 @@ display_board(test_board)
 
 # function that will take in player input and assign marker as 'X' or 'O'
 def assign_marker():
+  
+  '''
+  OUTPUT = (Player 1 marker, Player 2 marker)
+
+  '''
+
   # create empty variable for player 1's marker
   marker = ''
   # Keep asking player to choose X or O until correct answer
@@ -33,4 +39,13 @@ def assign_marker():
 # use tuple unpacking so we can print each choice indv later on if we need to
 player1_marker, player2_marker = assign_marker()
 # test player 1 marker which should be unpacked due to above statement
-print(player1_marker)
+# print(player1_marker)
+
+# function which takes in board as object, marker, and desired position on board and assigns it to the board
+def place_marker(board, marker, position):
+
+  board[position] = marker
+
+# test to see if place_marker works
+place_marker(test_board, '$', 8)
+display_board(test_board)
