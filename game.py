@@ -45,5 +45,15 @@ def place_marker(board, marker, position):
   board[position] = marker
 
 # test to see if place_marker works
-place_marker(test_board, '$', 8)
-display_board(test_board)
+# place_marker(test_board, '$', 8)
+# display_board(test_board)
+
+# Function that takes in board and mark and then checks to see if that mark has won the game
+# this will return True if a win condition is met , False if not
+def win_check(board, mark):
+  # check to see different ways to win 
+
+  # EACH ROW, EACH COLLUMN, EACH DIAGONAL, and check to see if they all share same marker
+  # remember mark is what you passed in before
+  (board[1] == board[2] == board[3] == mark) or (board[4] == board[5] == board[6] == mark) or (board[7] == board[8] == board[9] == mark) or (board[1] == board[4] == board[7] == mark) or (board[2] == board[5] == board[8] == mark) or (board[3] == board[6] == board[9] == mark) or (board[1] == board[5] == board[9] == mark) or (board[3] == board[5] == board[7] == mark)
+
