@@ -9,9 +9,9 @@ def display_board(board):
   print(board[4] + '|' + board[5] + '|' + board[6])
   print(board[1] + '|' + board[2] + '|' + board[3])
 
-test_board = [' ']*10
+# test_board = [' ']*10
 # test board
-display_board(test_board)
+# display_board(test_board)
 
 # function that will take in player input and assign marker as 'X' or 'O'
 def assign_marker():
@@ -55,7 +55,7 @@ def win_check(board, mark):
   # check to see different ways to win 
   # EACH ROW, EACH COLLUMN, EACH DIAGONAL, and check to see if they all share same mark
   # remember mark is what you passed in before
-  (board[1] == board[2] == board[3] == mark) or (board[4] == board[5] == board[6] == mark) or (board[7] == board[8] == board[9] == mark) or (board[1] == board[4] == board[7] == mark) or (board[2] == board[5] == board[8] == mark) or (board[3] == board[6] == board[9] == mark) or (board[1] == board[5] == board[9] == mark) or (board[3] == board[5] == board[7] == mark)
+  return (board[1] == board[2] == board[3] == mark) or (board[4] == board[5] == board[6] == mark) or (board[7] == board[8] == board[9] == mark) or (board[1] == board[4] == board[7] == mark) or (board[2] == board[5] == board[8] == mark) or (board[3] == board[6] == board[9] == mark) or (board[1] == board[5] == board[9] == mark) or (board[3] == board[5] == board[7] == mark)
 
 # use random module to create function to decide who goes first
 def choose_first():
@@ -133,26 +133,44 @@ while True:
       # first thing to do is display board
       display_board(game_board)
       # choose a position
-
+      position = player_choice(game_board)
       # place marker on position
-
+      place_marker(game_board, player1_marker, position)
       # check if they won
-
+      if win_check(game_board, player1_marker):
+        display_board(game_board)
+        print('Player 1 has won!!')
+        game_on = False
       # check if there is a tie
-
+      else:
+        if full_board_check(game_board):
+          display_board(game_board)
+          print('TIE game!')
+          game_on = False
       # no tie and no win? Then next players turn
+        else:
+          turn = 'Player 2'
     else:
       ### Player 2 turn. Same logic as player 1
       display_board(game_board)
       # choose a position
-
+      position = player_choice(game_board)
       # place marker on position
-
+      place_marker(game_board, player2_marker, position)
       # check if they won
-
+      if win_check(game_board, player2_marker):
+        display_board(game_board)
+        print('Player 2 has won!!')
+        game_on = False
       # check if there is a tie
-
+      else:
+        if full_board_check(game_board):
+          display_board(game_board)
+          print('TIE game!')
+          game_on = False
       # no tie and no win? Then next players turn
+        else:
+          turn = 'Player 1'
 
   ### break out of while True loop 
   if not replay():
