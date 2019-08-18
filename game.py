@@ -36,7 +36,7 @@ def assign_marker():
     return ('O', 'X')
 
 # use tuple unpacking so we can print each choice indv later on if we need to
-player1_marker, player2_marker = assign_marker()
+# player1_marker, player2_marker = assign_marker()
 # test player 1 marker which should be unpacked due to above statement
 # print(player1_marker)
 
