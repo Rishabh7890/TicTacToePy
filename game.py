@@ -74,4 +74,34 @@ def space_check(board, position):
   # get board[position] and see if it equals 0. Since already a boolean we can just return its value
   return board[position] == " "
 
+# test space_check. Also comment in place_test to see difference 
 print(space_check(test_board,8))
+
+# Function that checks if the board is full and returns a boolean. True if full, False otherwise
+def full_board_check(board):
+  # for loop that goes from range 1-10 bc board has 9 spaces
+  for i in range(1,10):
+    # use space check function from above in if statement to see if all spaces are taken. i as second argument will count all spaces
+    if space_check(board, i):
+      # return false if space check comes back true since that means not all spaces are taken
+      return False
+  # Otherwise return True because board is full
+  return True
+
+# Function to ask for player's next position and then uses space_check() to see if it is a free position
+# If free position, return the position for later use
+def player_choice(board):
+  # have position = 0 to be placeholder because we know that cannot be taken
+  position = 0
+  # while position is not in the list of possible playable positions or space isnt free
+  while position not in [1,2,3,4,5,6,7,8,9] or not space_check(board, position):
+    # ask the user to input a position and convert to int
+    position = int(input('Choose a position: (1-9)'))
+  # return the new position choice for later use 
+  return position
+
+# function to ask player if they want to play again. Returns True if they do, False if not
+def replay():
+  choice = input('Play Again? Enter Y/N')
+  
+  return choice == 'Y'
