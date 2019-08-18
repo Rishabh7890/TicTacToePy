@@ -43,7 +43,7 @@ player1_marker, player2_marker = assign_marker()
 
 # function which takes in board as object, marker, and desired position on board and assigns it to the board
 def place_marker(board, marker, position):
-
+  # go to specified position on board and place marker there
   board[position] = marker
 
 # test to see if place_marker works
@@ -54,7 +54,6 @@ def place_marker(board, marker, position):
 # this will return True if a win condition is met , False if not
 def win_check(board, marker):
   # check to see different ways to win 
-
   # EACH ROW, EACH COLLUMN, EACH DIAGONAL, and check to see if they all share same markerer
   # remember marker is what you passed in before
   (board[1] == board[2] == board[3] == marker) or (board[4] == board[5] == board[6] == marker) or (board[7] == board[8] == board[9] == marker) or (board[1] == board[4] == board[7] == marker) or (board[2] == board[5] == board[8] == marker) or (board[3] == board[6] == board[9] == marker) or (board[1] == board[5] == board[9] == marker) or (board[3] == board[5] == board[7] == marker)
@@ -71,11 +70,11 @@ def choose_first():
 
 # Function that returns a boolean indicating whether a space of the board is available (empty string) or not
 def space_check(board, position):
-  # get board[position] and see if it equals 0. Since already a boolean we can just return its value
+  # get board[position] and see if it equals blank space. Since already a boolean we can just return its value
   return board[position] == " "
 
 # test space_check. Also comment in place_test to see difference 
-print(space_check(test_board,8))
+# print(space_check(test_board,8))
 
 # Function that checks if the board is full and returns a boolean. True if full, False otherwise
 def full_board_check(board):
@@ -96,7 +95,7 @@ def player_choice(board):
   # while position is not in the list of possible playable positions or space isnt free
   while position not in [1,2,3,4,5,6,7,8,9] or not space_check(board, position):
     # ask the user to input a position and convert to int
-    position = int(input('Choose a position: (1-9)'))
+    position = int(input('Choose a available position: (1-9)'))
   # return the new position choice for later use 
   return position
 
@@ -105,3 +104,5 @@ def replay():
   choice = input('Play Again? Enter Y/N')
   
   return choice == 'Y'
+
+## NEED TO PUT IT ALL TOGETHER NOW.........
