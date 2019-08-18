@@ -104,4 +104,57 @@ def replay():
   
   return choice == 'Y'
 
-## NEED TO PUT IT ALL TOGETHER NOW.........
+# NEED TO PUT IT ALL TOGETHER NOW...
+print("Welcome to Tic-Tac-Toe in Python!")
+# While loop to keep running the game
+while True:
+  # Play the game
+  
+  ## Set everything up (board, whose first, choose markers)
+  game_board = [' ']*10
+  # using tuple unpacking assignt p1 and p2 respective markers using assign_marker()
+  player1_marker,player2_marker = assign_marker()
+  # using choose_first() set turn
+  turn = choose_first()
+  # since choose_first returns either player 1 or 2, we can print out to show user
+  print(turn + ' will go first.')
+  # now that game is set up as user if they are ready to play
+  play_game = input('Ready to play? Y/N')
+
+  if play_game == 'Y':
+    game_on = True
+  else:
+    game_on = False
+  ### Gameplay
+  # run game while game_on is True
+  while game_on:
+    if turn == 'Player 1': 
+      ### Player 1 turn
+      # first thing to do is display board
+      display_board(game_board)
+      # choose a position
+
+      # place marker on position
+
+      # check if they won
+
+      # check if there is a tie
+
+      # no tie and no win? Then next players turn
+    else:
+      ### Player 2 turn. Same logic as player 1
+      display_board(game_board)
+      # choose a position
+
+      # place marker on position
+
+      # check if they won
+
+      # check if there is a tie
+
+      # no tie and no win? Then next players turn
+
+  ### break out of while True loop 
+  if not replay():
+    break
+  # Break out of while loop on replay()
