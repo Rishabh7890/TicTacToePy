@@ -100,11 +100,11 @@ def player_choice(board):
 
 # function to ask player if they want to play again. Returns True if they do, False if not
 def replay():
-  choice = input('Play Again? Enter Y/N')
+  choice = input('Play Again? Enter Y/N ')
   
   return choice == 'Y'
 
-# NEED TO PUT IT ALL TOGETHER NOW...
+# NEED TO PUT IT ALL TOGETHER NOW... (Actual Game)
 print("Welcome to Tic-Tac-Toe in Python!")
 # While loop to keep running the game
 while True:
