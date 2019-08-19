@@ -118,7 +118,7 @@ while True:
   turn = choose_first()
   # since choose_first returns either player 1 or 2, we can print out to show user
   print(turn + ' will go first.')
-  # now that game is set up as user if they are ready to play
+  # now that game is set up ask user if they are ready to play
   play_game = input('Ready to play? Y/N')
 
   if play_game == 'Y':
